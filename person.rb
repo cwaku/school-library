@@ -32,6 +32,7 @@ class Person < Namable
     else
       @nameable.correct_name
     end
+  end
 
   private
 
@@ -56,7 +57,7 @@ end
 
 class CapitalizeDecorator < BaseDecorator
   def correct_name
-    @namable.correct_name.upcase
+    @namable.correct_name.capitalize
   end
 end
 
