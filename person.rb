@@ -37,3 +37,16 @@ class Person < Namable
   end
   # rubocop:enable Naming/PredicateName
 end
+
+class BaseDecorator < Namable
+  attr_accessor :namable
+
+  def initialize(namable)
+    super()
+    @namable = namable
+  end
+
+  def correct_name
+    @namable.correct_name
+  end
+end
