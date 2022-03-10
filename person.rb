@@ -22,7 +22,7 @@ class Person
   private
 
   def is_of_age
-    if @age >= 18
+    @age >= 18
       true
     else
       false
