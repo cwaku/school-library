@@ -56,3 +56,9 @@ class CapitalizeDecorator < BaseDecorator
     @namable.correct_name.upcase
   end
 end
+
+class TrimmerDecorator < BaseDecorator
+  def correct_name
+    @namable.correct_name.strip if @namable.correct_name.length <= 10
+  end
+end
