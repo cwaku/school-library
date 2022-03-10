@@ -1,18 +1,18 @@
 class Person
-  def initialize(_age, parent_permission: true, name = 'unknown')
-    @name = name
-    @age = int
-    @id = Random.rand(1..1000)
-    @parent_permission = parent_permission
-  end
-
   attr_accessor :name, :age
   attr_reader :id
+
+  def initalize(_age, name = 'Unknown', parent_permission: true)
+    @id = Random.rand(1..1000)
+    @name = name
+    @age = int
+    @parent_permission = parent_permission
+  end
 
   # rubocop:disable Naming/PredicateName
 
   def can_use_services?
-    if @parent_permission || is_of_age
+    if is_of_age || @parent_permission
       true
     else
       false
