@@ -1,7 +1,7 @@
 class Person
-  def initialize(name = "unknown", age, parent_permission = true)
+  def initialize(name = "unknown", _age, parent_permission: true)
     @name = name
-    @age = age
+    @age = int
     @id = Random.rand(1..1000)
     @parent_permission = parent_permission
   end
@@ -10,14 +10,16 @@ class Person
   attr_reader :id
 
   def can_use_services?
-    return true if @parent_permission == true || @age >= 18
-    false
+    if @parent_permission || is_of_age
+      true
+    else
+      false
+    end
   end
 
   private
 
-  def is_of_age?
-    return true if @age >= 18
-    false
+  def is_of_age
+    is_of_age >= 18
   end
 end
