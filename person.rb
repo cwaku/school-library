@@ -9,6 +9,7 @@ class Person < Namable
   attr_reader :id
 
   def initalize(_age, name = 'Unknown', parent_permission: true)
+    super()
     @id = Random.rand(1..1000)
     @name = name
     @age = int
@@ -23,6 +24,10 @@ class Person < Namable
     else
       false
     end
+  end
+
+  def correct_name
+    @name
   end
 
   private
