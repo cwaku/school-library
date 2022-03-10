@@ -50,3 +50,9 @@ class BaseDecorator < Namable
     @namable.correct_name
   end
 end
+
+class CapitalizeDecorator < BaseDecorator
+  def correct_name
+    @namable.correct_name.upcase
+  end
+end
