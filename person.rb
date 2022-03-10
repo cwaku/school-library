@@ -4,7 +4,7 @@ class Namable
   end
 end
 
-class Person
+class Person < Namable
   attr_accessor :name, :age
   attr_reader :id
 
