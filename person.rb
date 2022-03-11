@@ -12,7 +12,7 @@ class Person < Namable
     super()
     @id = Random.rand(1..1000)
     @name = name
-    @age = int
+    
     @parent_permission = parent_permission
   end
 
