@@ -2,6 +2,7 @@ require './student'
 require './teacher'
 require './book'
 require './rental'
+require './classroom'
 
 # rubocop:disable Metrics/ClassLength
 class App
