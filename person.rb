@@ -15,13 +15,13 @@ class Person
   end
 
   def can_use_services?
-    if is_of_age || @parent_permission
+    if of_age || @parent_permission
       true
     else
       false
     end
   end
-  
+
   def add_rental(book, date)
     Rental.new(date, self, book)
   end
@@ -32,7 +32,7 @@ class Person
 
   private
 
-  def is_of_age
+  def of_age?
     @age >= 18
   end
 end
