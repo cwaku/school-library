@@ -8,11 +8,11 @@ class Person < Namable
   attr_accessor :name, :age
   attr_reader :id
 
-  def initalize(_age, name = 'Unknown', parent_permission: true)
+  def initalize(age, name = 'Unknown', parent_permission: true)
     super()
     @id = Random.rand(1..1000)
     @name = name
-    @age = int
+    @age = age
     @parent_permission = parent_permission
   end
 
