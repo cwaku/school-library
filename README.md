@@ -28,7 +28,7 @@ cd school-library
 ```bash
 open terminal
 run the command $irb (interactive ruby shell)
-run the program functions
+run the files locally using the command ruby main.rb
 ```
 
 ## Author

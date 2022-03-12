@@ -1,5 +1,5 @@
 require './validate'
-require './rental'
+require './rentals'
 
 class Person
   attr_accessor :name, :age, :rentals
