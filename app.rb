@@ -146,7 +146,7 @@ class App
       puts 'Thank you for using the Library!'
       exit
     else puts 'Kindly enter a valid option'
-        print_message
+    print_message
     end
   end
   # rubocop:enable Metrics/CyclomaticComplexity
