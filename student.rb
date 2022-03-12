@@ -1,7 +1,7 @@
 require './person'
 
 class Student < Person
-  def initalize(classroom, age, name = 'Unknown', parent_permission: true)
+  def initalize(age, name = 'Unknown', parent_permission: true)
     super(age, name, parent_permission)
   end
 
