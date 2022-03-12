@@ -8,9 +8,9 @@ class Student < Person
 
   attr_reader :classroom
 
-  def classroom=(classroom)
-    @classroom = studentsclass
-    studentsclass.students.push(self) unless studentsclass.students.include?(self)
+  def classroom=(studentclass)
+    @classroom = studentclass
+    studentclass.students.push(self) unless studentclass.students.include?(self)
   end
 
   def play_hooky

@@ -1,22 +1,18 @@
-class Namable
-  def correct_name
-    raise NotImplementedError('Nameable has not implemented correct_name method')
-  end
-end
+require './validate'
+require './rental'
 
-class Person < Namable
+class Person
   attr_accessor :name, :age
-  attr_reader :id
+  attr_reader :id, :rentals
 
   def initalize(age, name = 'Unknown', parent_permission: true)
-    super()
     @id = Random.rand(1..1000)
     @name = name
     @age = age
     @parent_permission = parent_permission
+    @rentals = []
+    @validation = Validate.new
   end
-
-  # rubocop:disable Naming/PredicateName
 
   def can_use_services?
     if is_of_age || @parent_permission
@@ -25,44 +21,18 @@ class Person < Namable
       false
     end
   end
+  
+  def add_rental(book, date)
+    Rental.new(date, self, book)
+  end
 
-  def correct_name
-    if @namable.correct_name.length > 10
-      @nameable.correct_name[0..9]
-    else
-      @nameable.correct_name
-    end
+  def validate_name
+    @name = @validation.validate_name(@name)
   end
 
   private
 
   def is_of_age
     @age >= 18
-  end
-  # rubocop:enable Naming/PredicateName
-end
-
-class BaseDecorator < Namable
-  attr_accessor :namable
-
-  def initialize(namable)
-    super()
-    @namable = namable
-  end
-
-  def correct_name
-    @namable.correct_name
-  end
-end
-
-class CapitalizeDecorator < BaseDecorator
-  def correct_name
-    @namable.correct_name.capitalize
-  end
-end
-
-class TrimmerDecorator < BaseDecorator
-  def correct_name
-    @namable.correct_name.strip if @namable.correct_name.length <= 10
   end
 end
