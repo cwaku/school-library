@@ -5,7 +5,17 @@ class Teacher < Person
     @specialization = specialization
   end
 
+  attr_reader :classroom
+
   def can_use_services?
     true
   end
+
+  def classroom=(studentclass)
+    @classrom = studentclass
+    studentclass.students.push(self) unless studentclass.students.include?(self)
+  end
 end
+
+student = Teacher.new('Mormor', 21)
+puts student.age
